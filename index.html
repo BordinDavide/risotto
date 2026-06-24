@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Il risotto di Giada &amp; Davide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fraunces = stesso font del biglietto. Dancing Script = sostituto gratuito di Revive80 Signature -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,900;1,9..144,400;1,9..144,900&family=Dancing+Script:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#497440;          /* il verde del biglietto */
+    --ink-strong:#3c6235;   /* leggermente più scuro per i dettagli */
+    --paper:#ffffff;
+    --line:#497440;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Fraunces",Georgia,"Times New Roman",serif;
+    line-height:1.55;
+    font-size:18px;
+    padding:18px;
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  /* ---- Cornice (come il biglietto) ---- */
+  .frame{
+    border:1.5px solid var(--line);
+    border-radius:3px;
+    padding:40px 26px 44px;
+    position:relative;
+  }
+  .frame::after{           /* sottile filo interno, tocco da cartoleria */
+    content:"";
+    position:absolute;
+    inset:5px;
+    border:0.5px solid var(--line);
+    border-radius:2px;
+    opacity:.45;
+    pointer-events:none;
+  }
+
+  /* ---- Icona vasetto a tratto ---- */
+  .jar{
+    width:62px;height:auto;
+    color:var(--ink);
+    margin:0 auto 22px;
+    display:block;
+  }
+
+  /* ---- Firma (i nomi) ---- */
+  .couple{
+    font-family:"Dancing Script",cursive;
+    font-weight:600;
+    font-size:3.1rem;
+    line-height:1;
+    color:var(--ink);
+    margin-bottom:14px;
+  }
+  .date{
+    font-family:"Fraunces",serif;
+    font-size:.82rem;
+    letter-spacing:.22em;
+    font-weight:500;
+  }
+
+  /* ---- Filetto separatore ---- */
+  .rule{
+    width:40px;height:1px;background:var(--ink);
+    margin:26px auto;
+    position:relative;opacity:.8;
+  }
+  .rule::before,.rule::after{
+    content:"";position:absolute;top:-2px;width:4px;height:4px;
+    border-radius:50%;background:var(--ink);
+  }
+  .rule::before{left:-9px}.rule::after{right:-9px}
+
+  /* ---- Titolo piatto (stile "UNA FOTO PER I NOSTRI RICORDI") ---- */
+  .dish{
+    font-family:"Fraunces",serif;
+    font-weight:900;
+    font-style:italic;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:1.32rem;
+    line-height:1.25;
+    margin-bottom:8px;
+  }
+  .serves{
+    font-size:.95rem;
+    font-style:italic;
+    margin-bottom:6px;
+  }
+
+  /* ---- Sezioni ---- */
+  section{margin-top:40px}
+  .label{
+    font-family:"Fraunces",serif;
+    font-weight:900;
+    font-style:italic;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-size:1.05rem;
+    margin-bottom:6px;
+  }
+  .label-note{
+    font-size:.85rem;font-style:italic;opacity:.85;margin-bottom:22px;
+  }
+
+  /* ---- Ingredienti ---- */
+  ul.ingredients{list-style:none}
+  ul.ingredients li{
+    padding:9px 0;
+    font-size:1.05rem;
+  }
+  ul.ingredients li + li{
+    border-top:1px dotted rgba(73,116,64,.4);
+  }
+  .qty{font-weight:900;font-style:italic}
+
+  /* ---- Passaggi ---- */
+  ol.steps{list-style:none;counter-reset:step;max-width:460px;margin:0 auto}
+  ol.steps li{
+    counter-increment:step;
+    padding:16px 0;
+    font-size:1.05rem;
+  }
+  ol.steps li + li{
+    border-top:1px dotted rgba(73,116,64,.4);
+  }
+  ol.steps li::before{
+    content:counter(step);
+    display:block;
+    font-weight:900;font-style:italic;
+    font-size:1.25rem;
+    margin-bottom:5px;
+  }
+
+  footer{
+    margin-top:42px;
+    font-family:"Dancing Script",cursive;
+    font-weight:600;
+    font-size:1.7rem;
+  }
+
+  @media (max-width:380px){
+    body{font-size:17px}
+    .couple{font-size:2.7rem}
+    .frame{padding:34px 20px 38px}
+  }
+</style>
+</head>
+<body>
+  <div class="frame">
+
+    <!-- Icona vasetto (tratto verde, coordinata all'icona Instax del set) -->
+    <svg class="jar" viewBox="0 0 100 124" fill="none" stroke="currentColor"
+         stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="33" y="9" width="34" height="16" rx="3"/>
+      <path d="M37 25
+               C 31 25 31 29 31 33
+               C 31 39 25 41 25 51
+               L 25 99
+               C 25 107 31 113 39 113
+               L 61 113
+               C 69 113 75 107 75 99
+               L 75 51
+               C 75 41 69 39 69 33
+               C 69 29 69 25 63 25 Z"/>
+      <line x1="31" y1="72" x2="69" y2="72"/>
+      <path d="M35 84 l5 -5 M45 86 l5 -5 M55 84 l5 -5 M40 96 l5 -5 M51 96 l5 -5"
+            stroke-width="2.4"/>
+    </svg>
+
+    <!-- ====== I VOSTRI DATI ====== -->
+    <div class="couple">Giada &amp; Davide</div>
+    <div class="date">05 · 09 · 2026</div>
+    <!-- =========================== -->
+
+    <div class="rule"></div>
+
+    <h1 class="dish">Risotto ai porcini<br>o pomodori secchi</h1>
+    <p class="serves">il nostro grazie, da portare a tavola · per 2 persone</p>
+
+    <section>
+      <div class="label">Ingredienti</div>
+      <div class="label-note">già pronti nel vasetto</div>
+      <ul class="ingredients">
+        <li><span class="qty">180 g</span> · Riso Carnaroli</li>
+        <li><span class="qty">10 g</span> · Cipolla essiccata</li>
+        <li><span class="qty">1 cucchiaino</span> · Dado vegetale granulare</li>
+        <li><span class="qty">8 g</span> · Pomodori secchi <em>o</em> funghi porcini secchi</li>
+        <li><span class="qty">q.b.</span> · Pepe nero</li>
+        <li><span class="qty">q.b.</span> · Prezzemolo essiccato</li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="label">Preparazione</div>
+      <div class="label-note">pronto in circa 20 minuti</div>
+      <ol class="steps">
+        <li>Porta a ebollizione circa 700 ml di acqua.</li>
+        <li>Versa il contenuto del vasetto in una padella o casseruola.</li>
+        <li>Aggiungi un filo d'olio extravergine d'oliva e tosta il riso per 1 minuto.</li>
+        <li>Aggiungi l'acqua calda poco alla volta, mescolando di tanto in tanto.</li>
+        <li>Cuoci per 16–18 minuti, finché il riso non sarà cremoso.</li>
+        <li>A piacere, manteca con burro e parmigiano.</li>
+        <li>Servi caldo e buon appetito.</li>
+      </ol>
+    </section>
+
+    <footer>con amore</footer>
+
+  </div>
+</body>
+</html>
